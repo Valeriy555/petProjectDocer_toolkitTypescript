@@ -93,7 +93,7 @@ const inspectorSlice = createSlice({
             .addDefaultCase((state, action) => {
                 const [pathElement] = action.type.split('/').splice(-1);
                 if (pathElement === 'rejected') {
-                    state.error = action.payload;
+                    state.error = (action as PayloadAction<any>).payload;
                     state.loading = false;
                 }
 

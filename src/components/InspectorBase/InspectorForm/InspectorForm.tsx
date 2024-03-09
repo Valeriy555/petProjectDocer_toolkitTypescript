@@ -5,6 +5,7 @@ import {IInspector} from "../../../interfaces";
 import {inspectorActions} from "../../../redux";
 import {useNavigate} from "react-router-dom";
 
+import css from "./InspectorForm.module.css";
 
 interface IProps extends PropsWithChildren {
 
@@ -21,10 +22,10 @@ const InspectorForm: FC<IProps> = () => {
 
     useEffect(() => {
         if (inspectorForUpdate) {
-
-            setValue('name', inspectorForUpdate.name)
-            setValue('age', inspectorForUpdate.age)
-            setValue('email', inspectorForUpdate.email)
+            const {name, age, email} = inspectorForUpdate;
+            setValue('name', name)
+            setValue('age', age)
+            setValue('email', email)
 
         }
     }, [inspectorForUpdate, setValue])
@@ -37,6 +38,7 @@ const InspectorForm: FC<IProps> = () => {
                 await dispatch(inspectorActions.createInspector({inspector: data}))
             }
             reset();
+            dispatch(inspectorActions.setInspectorForUpdate({inspector: null})); // Сброс данных для обновления
         } catch (e) {
             // setFormError(e.response.data)
         }
@@ -47,7 +49,6 @@ const InspectorForm: FC<IProps> = () => {
         reset();
     };
 
-
     const handleBackToStart = (event: React.FormEvent) => {
         event.preventDefault();
         navigate(`/`);
@@ -55,7 +56,7 @@ const InspectorForm: FC<IProps> = () => {
     };
 
     return (
-        <div>
+        <div className={css.FormWrap}>
             <form onSubmit={handleSubmit(submit)}>
                 <input type="text" placeholder={'name'} {...register('name')}/>
                 <input type="text" placeholder={'age'} {...register('age')}/>

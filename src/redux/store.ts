@@ -1,10 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {inspectorReducer, stageReducer} from "./slices";
+import {containerReducer, inspectorReducer, stageReducer} from "./slices";
 
 const store = configureStore({
     reducer: {
         inspectorReducer,
-        stageReducer
+        stageReducer,
+        containerReducer
     }
 });
 

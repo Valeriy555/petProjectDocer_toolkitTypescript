@@ -1,0 +1,7 @@
+.LayoutWrap{
+    background: silver;
+    border: 1px solid red;
+    overflow: hidden;
+    margin: 0;
+    height: calc(100vh - 20px);
+}

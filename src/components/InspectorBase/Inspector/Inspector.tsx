@@ -1,8 +1,9 @@
 import {FC, PropsWithChildren} from 'react';
+
 import {IInspector} from "../../../interfaces";
-import {useDispatch} from "react-redux";
 import {inspectorActions} from "../../../redux";
 import {useAppDispatch} from "../../../hooks";
+import css from './Inspector.module.css'
 
 
 interface IProps extends PropsWithChildren {
@@ -25,16 +26,16 @@ const Inspector: FC<IProps> = ({inspector}) => {
     };
 
     return (
-        <div>
+        <div className={css.Inspector}>
 
             <div>name:{name}</div>
             <div>age:{age}</div>
             <div>email:{email}</div>
-            <button onClick={updateInspector}>Update Inspector</button>
-            <button onClick={deleteInspector}>Delete Inspector</button>
 
-            <hr/>
-
+            <div className={css.Btn}>
+                <button onClick={updateInspector}>Update Inspector</button>
+                <button onClick={deleteInspector}>Delete Inspector</button>
+            </div>
         </div>
     );
 };

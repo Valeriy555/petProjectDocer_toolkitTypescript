@@ -9,6 +9,10 @@ const urls = {
     stages: {
         base: '/stages',
         byId: (id: number): string => `${urls.stages.base}/${id}`
+    },
+    containers: {
+        base: '/containers',
+        byId: (id: number): string => `${urls.containers.base}/${id}`
     }
 }
 
