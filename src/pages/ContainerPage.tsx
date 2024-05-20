@@ -6,9 +6,11 @@ const ContainerPage: FC = () => {
 
     return (
         <div className={css.ContainersPageWrap}>
+
             <ContainerForm/>
             <hr/>
             <Containers/>
+
         </div>
     );
 };

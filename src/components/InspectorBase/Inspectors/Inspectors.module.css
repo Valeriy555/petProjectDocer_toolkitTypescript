@@ -2,7 +2,7 @@
     margin-left: 70px;
     display: flex;
     flex-wrap: wrap;
+    /*gap: 5px; !* Задает расстояние между строками в 20 пикселей *!*/
     height: calc(100vh - 80px);
     overflow-y: scroll;
-
 }
